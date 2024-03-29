@@ -22,46 +22,49 @@ public class Ac1Application {
 
 	@Bean
 	public CommandLineRunner init(@Autowired CategoriaProdutoRepository categoriaProdutoRepository,
-		@Autowired ProdutoRepository produtoRepository
-	) {
+			@Autowired ProdutoRepository produtoRepository) {
 		return args -> {
 			// Inserção de categorias
-			categoriaProdutoRepository.inserir((new CategoriaProduto(0,"Licor","Uma bebida alcoolica adocicada")));
-			categoriaProdutoRepository.inserir((new CategoriaProduto(0,"Whisky","Bebida destilada de rico")));
-			categoriaProdutoRepository.inserir((new CategoriaProduto(0,"Vodka","Destilado cristalino")));
-			categoriaProdutoRepository.inserir((new CategoriaProduto(0,"Cerveja","Paladares rustícos")));
+			categoriaProdutoRepository.inserir((new CategoriaProduto(0, "Licor", "Uma bebida alcoolica adocicada")));
+			categoriaProdutoRepository.inserir((new CategoriaProduto(0, "Whisky", "Bebida destilada de rico")));
+			categoriaProdutoRepository.inserir((new CategoriaProduto(0, "Vodka", "Destilado cristalino")));
+			categoriaProdutoRepository.inserir((new CategoriaProduto(0, "Cerveja", "Paladares rustícos")));
 
-			// Inserrção de  produtos
-			produtoRepository.inserir((new Produto(0,2,"Licor 43")));
-			produtoRepository.inserir((new Produto(0,20,"Jack de maça verde")));
-			produtoRepository.inserir((new Produto(0,50,"Balalaika")));
+			// Inserção de produtos
+			produtoRepository.inserir((new Produto(0, 2, "Licor 43")));
+			produtoRepository.inserir((new Produto(0, 20, "Jack Daniels")));
+			produtoRepository.inserir((new Produto(0, 50, "Balalaika")));
 
-			// Select categorias 
+			// Selecionar categorias
 			List<CategoriaProduto> listaCategorias = categoriaProdutoRepository.getAll();
-			// List<CategoriaProduto> listaCategoriasById = categoriaProdutoRepository.getById(1);
-			
-			System.out.println("===== Imprimindo as listas de  categorias =====");
-			listaCategorias.forEach(c -> {
-				System.out.println(c.toString());
+
+			// Exibir as categorias
+			System.out.println("Listando todas as categorias:");
+			listaCategorias.forEach(categoria -> {
+				System.out.println(categoria.toString());
 			});
-			
-			// PRODUTOS 
+
+			// Listar todos os produtos
 			List<Produto> listaProdutos = produtoRepository.getAll();
-			Produto p1 = listaProdutos.get(0);
-			Produto p2 = listaProdutos.get(1);
-			Produto p3 = listaProdutos.get(2);
 
-			p1.setCategoriaProduto(listaCategorias.get(2));
-			p2.setCategoriaProduto(listaCategorias.get(2));
-			p3.setCategoriaProduto(listaCategorias.get(2));
+			// Associar categorias aos produtos
+			Produto produto1 = listaProdutos.get(0);
+			Produto produto2 = listaProdutos.get(1);
+			Produto produto3 = listaProdutos.get(2);
 
-			produtoRepository.update(p1);
-			produtoRepository.update(p2);
-			produtoRepository.update(p3);
+			produto1.setCategoriaProduto(listaCategorias.get(2));
+			produto2.setCategoriaProduto(listaCategorias.get(2));
+			produto3.setCategoriaProduto(listaCategorias.get(2));
 
-			System.out.println("===== Imprimindo as listas de  produtos =====");
-			listaProdutos.forEach(c -> {
-				System.out.println(c.toString());
+			// Atualizar os produtos no repositório
+			produtoRepository.update(produto1);
+			produtoRepository.update(produto2);
+			produtoRepository.update(produto3);
+
+			// Exibir os produtos atualizados
+			System.out.println("Listando todos os produtos:");
+			listaProdutos.forEach(produto -> {
+				System.out.println(produto.toString());
 			});
 
 		};
