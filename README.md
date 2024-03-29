@@ -50,7 +50,7 @@ public CommandLineRunner init(@Autowired CategoriaProdutoRepository categoriaPro
         // Selecionar categorias 
         List<CategoriaProduto> listaCategorias = categoriaProdutoRepository.getAll();
 
-        System.out.println("===== Imprimindo as listas de categorias =====");
+        System.out.println("Impressão da lista de categorias");
         listaCategorias.forEach(c -> {
             System.out.println(c.toString());
         });
