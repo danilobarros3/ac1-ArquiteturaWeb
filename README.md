@@ -69,7 +69,7 @@ public CommandLineRunner init(@Autowired CategoriaProdutoRepository categoriaPro
         produtoRepository.update(p2);
         produtoRepository.update(p3);
 
-        System.out.println("===== Imprimindo as listas de produtos =====");
+        System.out.println("Impressão da lista de produtos");
         listaProdutos.forEach(c -> {
             System.out.println(c.toString());
         });
