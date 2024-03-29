@@ -16,6 +16,17 @@ Este projeto consiste na implementação de classes de repositórios para manipu
 
 Um teste em console é realizado para inserir categorias e produtos, em seguida, exibir todos os registros, associando produtos às categorias correspondentes.
 
+## Classes de Entidade
+
+### `Produto`
+
+A classe `Produto` representa um produto em estoque. Ela possui atributos como ID, quantidade em estoque, nome e uma referência à categoria à qual o produto pertence. Essa classe inclui métodos para obter e definir os atributos do produto.
+
+### `CategoriaProduto`
+
+A classe `CategoriaProduto` representa uma categoria de produtos. Ela possui atributos como ID, nome e descrição da categoria, bem como uma lista de produtos associados a essa categoria. Além disso, inclui métodos para obter e definir os atributos da categoria.
+
+
 ## Como Executar o Projeto
 
 1. Clone o repositório para o seu ambiente local.
