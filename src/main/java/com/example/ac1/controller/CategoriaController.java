@@ -21,15 +21,16 @@ public class CategoriaController {
     this.categoriaProdutoRepository = categoriaProdutoRepository;
   }
 
+  // Método para inserir uma nova categoria
   @PostMapping()
   public void inserir(@RequestBody CategoriaProduto categoriaProduto) {
     categoriaProdutoRepository.inserir(categoriaProduto);
-  }  
+  }
 
+  // Método para obter todas as categorias
   @GetMapping()
   public List<CategoriaProduto> obterTodos() {
     return this.categoriaProdutoRepository.getAll();
   }
 
-  
 }
